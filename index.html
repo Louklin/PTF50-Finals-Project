@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Home · South Peak Book &amp; Garden Cafe</title>
+  <meta name="description" content="South Peak Book & Garden Cafe in San Juan Baño, Arayat, Pampanga: a cozy café and bookshop. See the menu and find your next read.">
+  <meta name="theme-color" content="#f7f2e8">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/icon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+  <main class="home">
+    <!-- Hero + introduction -->
+    <section class="home-hero">
+      <img class="bg" src="img/img5.jpg" alt="" width="2048" height="1365" fetchpriority="high">
+      <div class="wrap">
+        <div class="eyebrow">Book &amp; Garden Cafe · Arayat, Pampanga</div>
+        <h1>Good coffee, good books, and a garden view.</h1>
+        <p class="lead">
+          South Peak Book &amp; Garden Cafe has been a quiet corner of San Juan Baño since 2021.
+          Order a drink, pick a book off our shelves, and stay as long as you like. Read it here,
+          or take it home. Not sure what to read? Tell us your mood and our Book Finder will suggest one.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="finder.html">Find a Book</a>
+          <a class="btn secondary" href="books.html">Browse all books</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <!-- Photos -->
+      <section class="home-gallery" aria-label="Photos of South Peak">
+        <figure>
+          <img src="img/img4.jpg" alt="The café's wooden tables, hanging lamps and bookshelves" width="526" height="935" loading="lazy">
+        </figure>
+        <figure>
+          <img src="img/img3.jpg" alt="A customer browsing the café's wall of bookshelves" width="640" height="1136" loading="lazy">
+        </figure>
+        <figure>
+          <img src="img/img1.jpg" alt="A John Steinbeck collection on a wooden table in front of the shelves" width="526" height="701" loading="lazy">
+        </figure>
+        <figure>
+          <img src="img/img2.jpg" alt="A copy of Homer's Iliad and Odyssey beside a small bookshelf figurine" width="526" height="526" loading="lazy">
+        </figure>
+      </section>
+
+      <!-- Menu -->
+      <section class="home-menu" id="menu" aria-labelledby="menu-title">
+        <h2 id="menu-title">Menu</h2>
+        <p class="muted">Order at the counter. Prices in pesos.</p>
+
+        <div class="chips" id="filters" role="group" aria-label="Filters">
+          <button type="button" class="chip" data-f="hot" aria-pressed="false">Hot</button>
+          <button type="button" class="chip" data-f="iced" aria-pressed="false">Iced</button>
+          <button type="button" class="chip" data-f="no-coffee" aria-pressed="false">No coffee</button>
+          <button type="button" class="chip" data-f="budget" aria-pressed="false">₱150 and under</button>
+        </div>
+
+        <nav class="chips menu-cats" id="cats" aria-label="Menu sections"></nav>
+        <div id="menu-list"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="data/menu.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/menu.js"></script>
+</body>
+</html>

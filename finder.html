@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Book Finder · South Peak Book &amp; Garden Cafe</title>
+  <meta name="description" content="Describe the kind of book you're in the mood for and South Peak's AI Book Finder suggests titles from the café's shelves.">
+  <meta name="theme-color" content="#f7f2e8">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/icon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="find">
+  <main>
+    <div class="wrap">
+      <section class="hero">
+        <div>
+          <div class="eyebrow">AI Book Finder</div>
+          <h1>What do you feel like reading today?</h1>
+          <p class="lead">Describe a mood, a topic, or how much time you have. We'll find the closest matches on South Peak's shelves.</p>
+        </div>
+      </section>
+
+      <form class="card finder" id="finder-form" autocomplete="off">
+        <label class="big" for="query">Describe the book you want</label>
+        <textarea id="query" name="query" maxlength="300" enterkeyhint="search"
+          placeholder="e.g. something light and funny that I can finish over one coffee"></textarea>
+
+        <div class="filters">
+          <label>I want to
+            <select id="f-avail">
+              <option value="any">Read or buy</option>
+              <option value="read">Read it here</option>
+              <option value="sale">Buy it</option>
+            </select>
+          </label>
+          <label>Budget (if buying)
+            <select id="f-price" disabled>
+              <option value="">Any price</option>
+              <option value="300">Up to ₱300</option>
+              <option value="500">Up to ₱500</option>
+              <option value="700">Up to ₱700</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="row">
+          <button class="btn" type="submit" id="search-btn" disabled>Find my book</button>
+        </div>
+
+        <div class="ai-status" id="ai-status" role="status" aria-live="polite">
+          <span class="dot"></span><span id="ai-status-text">Getting the AI ready…</span>
+          <div class="progress" id="ai-progress" hidden><i></i></div>
+        </div>
+
+        <div class="examples">
+          <p>Not sure? Try one of these:</p>
+          <div class="chips" id="examples"></div>
+        </div>
+      </form>
+
+      <section class="results" id="results" hidden aria-live="polite"></section>
+
+      <section class="card how" id="how">
+        <h2>How the Book Finder works</h2>
+        <ol>
+          <li>Every book on our shelf has a short description, genres, and mood words.</li>
+          <li>A small AI language model (<a href="https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2" target="_blank" rel="noopener">MiniLM</a>, run with Transformers.js) turns each description into a list of 384 numbers that captures its <em>meaning</em>.</li>
+          <li>When you type what you want, the model turns your words into numbers the same way.</li>
+          <li>The app compares your request with every book and shows the ones with the closest meaning, even if they don't share the same words.</li>
+        </ol>
+        <p class="small muted" style="margin-top:10px">The model runs entirely in your browser. What you type is never sent to a server. The first visit downloads the model (about 23 MB); after that it loads from your phone's cache.</p>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="data/books.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/covers.js"></script>
+  <script src="js/finder.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Books · South Peak Book &amp; Garden Cafe</title>
+  <meta name="description" content="Browse the books you can read or buy at South Peak Book & Garden Cafe.">
+  <meta name="theme-color" content="#f7f2e8">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/icon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="books">
+  <main>
+    <div class="wrap">
+      <h1>Our Shelf</h1>
+      <p class="muted">Every book you can read over a drink or take home. Tap a book for details.
+        Not sure what you want? <a href="finder.html">Ask the Book Finder</a>.</p>
+
+      <div class="toolbar">
+        <label class="sr-only" for="q">Search by title or author</label>
+        <input type="search" id="q" placeholder="Search title or author">
+        <div class="selects">
+          <label class="sr-only" for="genre">Genre</label>
+          <select id="genre"><option value="">All genres</option></select>
+          <label class="sr-only" for="sort">Sort</label>
+          <select id="sort">
+            <option value="title">Title A–Z</option>
+            <option value="author">Author A–Z</option>
+            <option value="price-asc">Price: low to high</option>
+            <option value="price-desc">Price: high to low</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="chips" id="avail" role="group" aria-label="Availability" style="margin-bottom:16px">
+        <button type="button" class="chip" data-v="" aria-pressed="true">All</button>
+        <button type="button" class="chip" data-v="read" aria-pressed="false">Read in café</button>
+        <button type="button" class="chip" data-v="sale" aria-pressed="false">For sale</button>
+      </div>
+
+      <div class="count" id="count"></div>
+      <div class="book-grid" id="grid"></div>
+    </div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="data/books.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/covers.js"></script>
+  <script src="js/catalog.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Visit · South Peak Book &amp; Garden Cafe</title>
+  <meta name="description" content="Location, hours and contact details for South Peak Book & Garden Cafe in San Juan Baño, Arayat, Pampanga.">
+  <meta name="theme-color" content="#f7f2e8">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/icon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="visit">
+  <main>
+    <div class="wrap">
+      <h1>Visit us</h1>
+      <p class="muted" id="intro"></p>
+
+      <div class="visit-grid">
+        <div class="card visit-card">
+          <h2>Find us</h2>
+          <dl id="details"></dl>
+          <div class="links" id="links"></div>
+        </div>
+
+        <iframe class="map" id="map" title="Map to South Peak Book & Garden Cafe" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        <div class="card visit-card">
+          <h2>Reading in the café</h2>
+          <!-- TODO: confirm these house rules with the owner -->
+          <ul class="rules">
+            <li>Books marked <span class="badge read">Read in café</span> are free to read while you stay.</li>
+            <li>Please return books to the shelf or the counter when you leave.</li>
+            <li>Want to take one home? Books marked <span class="badge sale">For sale</span> can be bought at the counter.</li>
+            <li>Keep drinks a safe distance from the pages.</li>
+          </ul>
+        </div>
+
+        <div class="card visit-card">
+          <h2>Shop online</h2>
+          <p>Can't visit? Some of our books are also sold on Shopee and can be delivered to you.</p>
+          <div class="links" id="shop-links"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/common.js"></script>
+  <script>
+    (function () {
+      const S = window.SITE, { esc } = window.SP;
+      const telHref = "tel:+63" + S.phone.replace(/\D/g, "").replace(/^0/, "");
+      const mapsLink = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(S.mapQuery);
+
+      document.getElementById("intro").textContent =
+        `A book and garden café in San Juan Baño, near Mount Arayat, open since ${S.since}. Come for coffee, stay for a chapter (or three).`;
+
+      document.getElementById("details").innerHTML = `
+        <dt>Address</dt><dd>${esc(S.address)}</dd>
+        <dt>Phone</dt><dd><a href="${telHref}">${esc(S.phone)}</a></dd>
+        <dt>Hours</dt><dd>${S.hours.map(h => `${esc(h.days)}: ${esc(h.time)}`).join("<br>")}</dd>`;
+
+      document.getElementById("links").innerHTML = `
+        <a class="btn" href="${mapsLink}" target="_blank" rel="noopener">Get directions</a>
+        <a class="btn secondary" href="${telHref}">Call</a>
+        <a class="btn secondary" href="${esc(S.facebook)}" target="_blank" rel="noopener">Facebook</a>`;
+
+      document.getElementById("shop-links").innerHTML = `
+        <a class="btn" href="${esc(S.shopee)}" target="_blank" rel="noopener">Open our Shopee shop</a>`;
+
+      document.getElementById("map").src =
+        "https://maps.google.com/maps?q=" + encodeURIComponent(S.mapQuery) + "&z=15&output=embed";
+    })();
+  </script>
+</body>
+</html>
